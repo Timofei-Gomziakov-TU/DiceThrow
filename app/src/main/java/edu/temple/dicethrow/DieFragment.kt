@@ -8,10 +8,11 @@ import android.view.ViewGroup
 import android.widget.TextView
 import kotlin.random.Random
 
+val DIESIDE = "sidenumber"
+val DIENUM = "dienum"
+
 class DieFragment : Fragment() {
 
-    val DIESIDE = "sidenumber"
-    val DIENUM = "dienum"
 
     lateinit var dieTextView: TextView
 
@@ -57,5 +58,16 @@ class DieFragment : Fragment() {
     override fun onSaveInstanceState(outState: Bundle) {
         super.onSaveInstanceState(outState)
         outState.putInt(DIENUM, dieVal)
+    }
+
+    companion object {
+        fun newInstance(sides : Int) : DieFragment{
+            val fragment = DieFragment()
+            val bundle = Bundle()
+            bundle.putInt(DIESIDE, sides)
+            fragment.arguments = bundle
+
+            return fragment
+        }
     }
 }
