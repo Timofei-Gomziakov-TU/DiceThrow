@@ -3,6 +3,7 @@ package edu.temple.dicethrow
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import kotlin.random.Random
 
 class DieViewModel : ViewModel() {
     private val currentRoll : MutableLiveData<Int> by lazy {
@@ -15,5 +16,8 @@ class DieViewModel : ViewModel() {
 
     public fun setCurrentRoll(value : Int) {
         currentRoll.value = value
+    }
+    public fun rollDie(){
+        setCurrentRoll((Random.nextInt(20) + 1))
     }
 }
