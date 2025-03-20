@@ -17,7 +17,6 @@ class MainActivity : AppCompatActivity() {
                 (supportFragmentManager
                     .findFragmentById(R.id.fragmentContainerView) as DieFragment)
                     .throwDie()
-
             }
         }
     }
